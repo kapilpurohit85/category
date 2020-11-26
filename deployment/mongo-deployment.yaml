@@ -22,7 +22,14 @@ spec:
           volumeMounts:
             - name: storage
               mountPath: /data/db
+          resources:
+            requests:
+              memory: 500Mi
+              cpu: 0.25
+            limits:
+              memory: 900Mi
+              cpu: 1
       volumes:
         - name: storage
           persistentVolumeClaim:
-            claimName: mongo-pvc
+            claimName: mongo-pvc-edgware

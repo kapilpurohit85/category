@@ -20,11 +20,18 @@ spec:
         servicefor: category
     spec:
       containers:
-      - image: kapilpurohit85/category:distributed
+      - image: kapilpurohit85/category:distributed1
         imagePullPolicy: Always
         name: category
         ports:
           - containerPort: 8080
+        resources:
+          requests:
+            memory: 500Mi
+            cpu: 0.25
+          limits:
+            memory: 900Mi
+            cpu: 1
         env:
           - name: SPRING_DATA_MONGODB_URI
             value: mongodb://mongo:27017/dev
